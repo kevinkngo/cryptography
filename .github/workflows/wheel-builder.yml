@@ -8,16 +8,6 @@ on:
         description: The version to build
   # Do not add any non-tag push events without updating pypi-publish.yml. If
   # you do, it'll upload wheels to PyPI.
-  push:
-    tags:
-      - '*.*'
-      - '*.*.*'
-  pull_request:
-    paths:
-      - .github/workflows/wheel-builder.yml
-      - setup.py
-      - pyproject.toml
-      - vectors/pyproject.toml
 
 env:
   CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
@@ -209,7 +199,7 @@ jobs:
         if: contains(matrix.PYTHON.VERSION, 'pypy')
       - uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615
         with:
-          repo: pyca/infra
+          repo: clundin25/infra
           workflow: build-macos-openssl.yml
           branch: main
           workflow_conclusion: success
@@ -294,7 +284,7 @@ jobs:
 
       - uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615
         with:
-          repo: pyca/infra
+          repo: clundin25/infra
           workflow: build-windows-openssl.yml
           branch: main
           workflow_conclusion: success
