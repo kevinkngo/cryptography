@@ -11,6 +11,7 @@ on:
 
 env:
   BUILD_REQUIREMENTS_PATH: .github/requirements/build-requirements.txt
+  CRYPTOGRAPHY_OPENSSL_NO_LEGACY: True
 
 jobs:
   sdist:
